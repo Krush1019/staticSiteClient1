@@ -14,6 +14,7 @@
   };
   loader();
 
+  console.log('dfvdfv', $('#footerDateYear'));
 
 
 
@@ -192,6 +193,7 @@
 
 })(jQuery);
 
+
 function replacePlaceholder(id, file) {
   fetch(file)
     .then(response => response.text())
@@ -210,3 +212,22 @@ function replacePlaceholder(id, file) {
 replacePlaceholder('loader-placeholder', 'components/loader.html');
 replacePlaceholder('header-placeholder', 'components/header.html');
 replacePlaceholder('footer-placeholder', 'components/footer.html');
+setTimeout(() => {
+  $('#footerDateYear').text(new Date().getFullYear());
+
+  // Get the current URL
+  var currentUrl = window.location.href;
+
+  // Loop through each navbar link
+  $(".navbar-nav .nav-link").each(function () {
+    console.log(this.href, currentUrl);
+    // Check if the link's href matches the current URL
+    if (currentUrl.includes(this.href)) {
+      // Add the 'active' class to the parent list item or the link itself
+      $(this).addClass("active");
+    } else {
+      // Remove the 'active' class in case it was added previously
+      $(this).removeClass("active");
+    }
+  });
+}, 500);
