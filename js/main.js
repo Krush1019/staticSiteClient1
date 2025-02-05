@@ -1,21 +1,18 @@
+// loader
+var loader = function () {
+  setTimeout(function () {
+    if ($('#loader').length > 0) {
+      $('#loader').removeClass('show');
+    }
+  }, 100);
+};
+
+
 (function ($) {
 
   'use strict';
 
   // bootstrap dropdown hover
-
-  // loader
-  var loader = function () {
-    setTimeout(function () {
-      if ($('#loader').length > 0) {
-        $('#loader').removeClass('show');
-      }
-    }, 100);
-  };
-  loader();
-
-  console.log('dfvdfv', $('#footerDateYear'));
-
 
 
   $('nav .dropdown').hover(function () {
@@ -212,6 +209,9 @@ function replacePlaceholder(id, file) {
 replacePlaceholder('loader-placeholder', 'components/loader.html');
 replacePlaceholder('header-placeholder', 'components/header.html');
 replacePlaceholder('footer-placeholder', 'components/footer.html');
+
+loader();
+
 setTimeout(() => {
   $('#footerDateYear').text(new Date().getFullYear());
 
