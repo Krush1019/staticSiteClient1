@@ -1,11 +1,11 @@
 // loader
-var loader = function () {
+/* var loader = function () {
   setTimeout(function () {
     if ($('#loader').length > 0) {
       $('#loader').removeClass('show');
     }
   }, 100);
-};
+}; */
 
 
 (function ($) {
@@ -27,11 +27,6 @@ var loader = function () {
     $this.find('.dropdown-menu').removeClass('show');
   });
 
-
-  $('#dropdown04').on('show.bs.dropdown', function () {
-    console.log('show');
-  });
-
   // home slider
   $('.home-slider').owlCarousel({
     loop: true,
@@ -43,6 +38,8 @@ var loader = function () {
     autoplayHoverPause: true,
     items: 1,
     dragTouch: false,
+    mouseDrag: false,
+    touchDrag: true,
     navText: ["<span class='ion-chevron-left'></span>", "<span class='ion-chevron-right'></span>"],
     responsive: {
       0: {
@@ -59,92 +56,6 @@ var loader = function () {
       }
     }
   });
-
-  $('.nonloop-block-11').owlCarousel({
-    center: false,
-    items: 1,
-    loop: false,
-    stagePadding: 20,
-    margin: 50,
-    nav: true,
-    smartSpeed: 1000,
-    navText: ['<span class="ion-chevron-left">', '<span class="ion-chevron-right">'],
-    responsive: {
-      600: {
-        stagePadding: 20,
-        items: 1
-      },
-      800: {
-        stagePadding: 20,
-        items: 1
-      },
-      1000: {
-        // stagePadding: 200,
-        items: 1
-      }
-    }
-  });
-
-  // owl carousel
-  var majorCarousel = $('.js-carousel-1');
-  majorCarousel.owlCarousel({
-    loop: true,
-    autoplay: true,
-    stagePadding: 7,
-    margin: 20,
-    animateOut: 'fadeOut',
-    animateIn: 'fadeIn',
-    nav: true,
-    autoplayHoverPause: true,
-    items: 3,
-    navText: ["<span class='ion-chevron-left'></span>", "<span class='ion-chevron-right'></span>"],
-    responsive: {
-      0: {
-        items: 1,
-        nav: false
-      },
-      600: {
-        items: 2,
-        nav: false
-      },
-      1000: {
-        items: 3,
-        nav: true,
-        loop: false
-      }
-    }
-  });
-
-  // owl carousel
-  var major2Carousel = $('.js-carousel-2');
-  major2Carousel.owlCarousel({
-    loop: true,
-    autoplay: true,
-    stagePadding: 7,
-    margin: 20,
-    animateOut: 'fadeOut',
-    animateIn: 'fadeIn',
-    nav: true,
-    autoplayHoverPause: true,
-    items: 4,
-    navText: ["<span class='ion-chevron-left'></span>", "<span class='ion-chevron-right'></span>"],
-    responsive: {
-      0: {
-        items: 1,
-        nav: false
-      },
-      600: {
-        items: 3,
-        nav: false
-      },
-      1000: {
-        items: 4,
-        nav: true,
-        loop: false
-      }
-    }
-  });
-
 
   var contentWayPoint = function () {
     var i = 0;
@@ -210,7 +121,7 @@ replacePlaceholder('loader-placeholder', 'components/loader.html');
 replacePlaceholder('header-placeholder', 'components/header.html');
 replacePlaceholder('footer-placeholder', 'components/footer.html');
 
-loader();
+// loader();
 
 setTimeout(() => {
   $('#footerDateYear').text(new Date().getFullYear());
@@ -220,7 +131,6 @@ setTimeout(() => {
 
   // Loop through each navbar link
   $(".navbar-nav .nav-link").each(function () {
-    console.log(this.href, currentUrl);
     // Check if the link's href matches the current URL
     if (currentUrl.includes(this.href)) {
       // Add the 'active' class to the parent list item or the link itself

@@ -41,6 +41,14 @@
   gap: 1rem;
 }
 
+/* if carousel scroll not working in mobile*/
+
+/* .owl-carousel .owl-stage,
+.owl-carousel.owl-drag .owl-item {
+  -ms-touch-action: auto;
+  touch-action: auto;
+} */
+
 @media (max-width: 576px) {
   .client-logo {
     height: 50px;
